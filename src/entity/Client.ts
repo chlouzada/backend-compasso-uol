@@ -18,5 +18,5 @@ export class Client {
   birthday: string;
 
   @Column("varchar", { length: 120 })
-  city: number;
+  city: string;
 }
