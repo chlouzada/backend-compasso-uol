@@ -6,8 +6,9 @@ const app = express();
 
 app.use(express.json({}));
 
+database();
+
 app.use(routes);
 
-database();
 
 export default app;
