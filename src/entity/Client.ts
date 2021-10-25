@@ -6,7 +6,7 @@ export class Client {
   id: number;
 
   @Column("varchar", { length: 120 })
-  fullName: string;
+  name: string;
 
   @Column("varchar", { length: 32 })
   sex: string;

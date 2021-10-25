@@ -6,7 +6,7 @@ import * as moment from "moment";
 // import {  } from "moment";
 
 interface IRequest {
-  fullName: string;
+  name: string;
   sex: string;
   age: number;
   birthday: string;
@@ -21,7 +21,7 @@ class CreateClientService {
   }
 
   async execute({
-    fullName,
+    name,
     sex,
     age,
     birthday,
@@ -32,7 +32,7 @@ class CreateClientService {
     const momentDate = moment(birthday, "DD-MM-YYYY").format("YYYY-MM-DD");
 
     const client = this.clientRepository.create({
-      fullName,
+      name,
       sex,
       age,
       birthday: momentDate,
