@@ -5,18 +5,18 @@ export class Client {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column("varchar", { length: 120 })
+  @Column()
   name: string;
 
-  @Column("varchar", { length: 32 })
+  @Column()
   sex: string;
 
-  @Column("int", { unsigned: true })
+  @Column()
   age: number;
 
   @Column("date")
   birthday: string;
 
-  @Column("varchar", { length: 120 })
+  @Column()
   city: string;
 }

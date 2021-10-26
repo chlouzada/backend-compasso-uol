@@ -10,9 +10,8 @@ class UpdateClientController {
   ): Promise<Response> {
     const { id } = request.params;
     const { name } = request.body;
-    
-    if (isNaN(parseInt(id)) || !name)
-      next(ApiError.badRequest("bad request"));
+
+    if (isNaN(parseInt(id)) || !name) next(ApiError.badRequest("bad request"));
 
     const updateClientService = new UpdateClientService();
 

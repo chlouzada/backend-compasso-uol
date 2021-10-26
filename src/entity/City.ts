@@ -6,9 +6,9 @@ export class City {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column("varchar", { length: 120 })
+    @Column()
     name: string;
 
-    @Column("varchar", { length: 120 })
+    @Column()
     state: string;
 }

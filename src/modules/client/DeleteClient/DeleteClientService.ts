@@ -1,6 +1,5 @@
 import { getRepository, Repository } from "typeorm";
 import { Client } from "../../../entity/Client";
-import { ApiError } from "../../../shared/ApiErrors";
 
 interface IRequest {
   id: string;

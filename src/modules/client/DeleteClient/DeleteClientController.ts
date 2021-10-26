@@ -10,8 +10,7 @@ class DeleteClientController {
   ): Promise<Response> {
     const { id } = request.params;
 
-    if (isNaN(parseInt(id)))
-      next(ApiError.badRequest("id must be number"));
+    if (isNaN(parseInt(id))) next(ApiError.badRequest("id must be number"));
 
     const deleteClientService = new DeleteClientService();
 
