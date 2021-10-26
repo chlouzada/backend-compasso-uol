@@ -1,9 +1,13 @@
-import { Request, Response } from "express";
+import { NextFunction, Request, Response } from "express";
 
 import { CreateCityService } from "./CreateCityService";
 
 class CreateCityController {
-  async handle(request: Request, response: Response): Promise<Response> {
+  async handle(
+    request: Request,
+    response: Response,
+    next: NextFunction
+  ): Promise<Response> {
     const { name, state } = request.body;
 
     const createCityService = new CreateCityService();
@@ -16,7 +20,7 @@ class CreateCityController {
 
       return response.status(201).json(city);
     } catch (err) {
-      response.status(err.statusCode).json(err)
+      next(err);
     }
   }
 }

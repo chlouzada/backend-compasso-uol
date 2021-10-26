@@ -1,6 +1,7 @@
 import * as express from "express";
 import routes from "./routes";
 import database from "./config/database";
+import errorHandler from "./shared/ErrorHandler";
 
 const app = express();
 
@@ -10,5 +11,6 @@ database();
 
 app.use(routes);
 
+app.use(errorHandler);
 
 export default app;

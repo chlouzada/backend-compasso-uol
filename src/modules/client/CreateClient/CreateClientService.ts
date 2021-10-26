@@ -43,7 +43,7 @@ class CreateClientService {
 
     return client;
     } catch (err) {
-      throw new ApiError("Failed at create", 400);
+      throw new ApiError("failed at create", 400);
     }
   }
 }

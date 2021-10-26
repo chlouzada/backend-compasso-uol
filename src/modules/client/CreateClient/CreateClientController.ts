@@ -1,9 +1,14 @@
-import { Request, Response } from "express";
+import { NextFunction, Request, Response } from "express";
+import { ApiError } from "../../../shared/ApiErrors";
 
 import { CreateClientService } from "./CreateClientService";
 
 class CreateClientController {
-  async handle(request: Request, response: Response): Promise<Response> {
+  async handle(
+    request: Request,
+    response: Response,
+    next: NextFunction
+  ): Promise<Response> {
     const { name, sex, age, birthday, city } = request.body;
 
     const createClientService = new CreateClientService();
@@ -19,7 +24,7 @@ class CreateClientController {
 
       return response.status(201).json(client);
     } catch (err) {
-      response.status(err.statusCode).json(err);
+      next(err);
     }
   }
 }

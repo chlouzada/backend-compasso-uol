@@ -15,19 +15,17 @@ class GetClientService {
   }
 
   async execute({ id, name }: IRequest): Promise<Client[] | Client> {
-    try {
-      let client: Client | Client[];
-      if (id) {
-        client = await this.clientRepository.findOne({ id: parseInt(id) });
-      } else {
-        client = await this.clientRepository.find({
-          name,
-        });
-      }
-      return client;
-    } catch (err) {
-      throw new ApiError("bad request", 400);
+    let client: Client | Client[];
+
+    if (id) {
+      client = await this.clientRepository.findOne({ id: parseInt(id) });
+      if (!client) throw 404;
+    } else {
+      client = await this.clientRepository.find({
+        name,
+      });
     }
+    return client;
   }
 }
 

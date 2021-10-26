@@ -15,7 +15,7 @@ class CreateCityService {
   }
 
   async execute({ name, state }: IRequest): Promise<City | undefined> {
-    if (!name || !state) throw new ApiError("Name and State is required", 400);
+    if (!name || !state) throw new ApiError("name and state is required", 400);
 
     const city = this.cityRepository.create({
       name,
