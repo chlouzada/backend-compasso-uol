@@ -19,3 +19,7 @@ user: root
 password: root
 database: compasso-uol
 ```
+
+### Teste
+
+Para testar foi utilizado o Insomnia, sendo o arquivo `InsomniaCollection.json` o export da collection usada para testes
