@@ -11,7 +11,7 @@ class GetClientController {
     const { name } = request.query;
     const { id } = request.params;
 
-    if (isNaN(parseInt(id))) next(ApiError.badRequest("id must be number"));
+    if (isNaN(parseInt(id)) && !name) next(ApiError.badRequest("id must be number"));
 
     const getClientService = new GetClientService();
 
